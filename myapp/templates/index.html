@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block body%}
+<br><br>
+<div class="container" style=" max-width: 1400px;width:100%">
+  <div class="row">
+   <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue">
+					<h3>No of Student</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title" style="color:red">{{noof}}</h3>
+				</div>		
+			</div>
+		</div>	
+	</div>	
+    <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue">
+					<h3>No of Boys</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title" style="color:red">{{male}}</h3>
+				</div>		
+			</div>
+		</div>	
+	</div>	
+   <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue;">
+					<h3>No of Girls</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title" style="color:red">{{female}}</h3>
+				</div>		
+			</div>
+		</div>	
+	</div>	
+  </div>
+</div>	
+
+<br>
+<br>
+<div class="container" style=" max-width: 1400px;width:100%">
+  <div class="row">
+	<div class="col-md-11 content_page_head position-relative">
+		<h5>Students Details</h5>
+	</div>
+	  <div class="col-md-1">
+		<!-- <button class="btn btn-success"><a style="color:white;text-decoration:none" href="{% url 'register' %}" >+</a></button> -->
+		<a href="{% url 'register' %}" ><i class="fa fa-plus" style="font-size:48px;color:#229954"></i></a>
+	</div>
+</div>
+</div>
+<br>	
+<div class="container" style=" max-width: 1400px;width:100%">
+  <div class="row">
+    <div class="col-md-12">
+		<div class="col-sm text-center text-white">
+			<div class="card card-body">
+		<table class="table table-sm table-hover table-fixed">
+			<thead>	
+			<tr class="btn-primary">
+				<th>Sno</th>
+				<th>Full Name</th>
+                <th>Father Name</th>
+                <th>Gender</th>
+                <th>Degree</th>
+                <th>Department</th>
+				<th>Year</th>
+				<th>View</th>
+				<th>Action</th>
+			</tr>
+			</thead>
+			{% for i in data %}
+            {% with 0 as d %}
+                {{with.counter}}
+            <tbody >
+			<tr>
+				<td>{{forloop.counter}}</td>
+				<td>{{i.fullName}}</td>
+                <td>{{i.fatherName}}</td>
+				<td>{{i.gender}}</td>
+                <td>{{i.degree}}</td>
+				<td>{{i.dept}}</td>
+                <td>{{i.year}}</td>
+				<td><a class="btn btn-info" href="{% url 'viewall' i.id %}">View</a></td>
+				<td><a class="btn btn-success" href="{% url 'updateRegister' i.id %}">Edit</a>      <a class="btn btn-danger" href="{% url 'deleteRegister' i.id %}"">Delete</a></td>
+			</tr>
+			</tbody>
+            {% endwith %}
+              	{% endfor %}
+                            			
+       
+
+		</table>
+	</div>	
+		</div>	
+    </div>
+   </div>
+
+  </div>
+
+<!-- <div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue">
+					<h3>No of Student</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title"></h3>
+				</div>		
+			</div>
+		</div>	
+	</div>	
+	<div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3">
+				<div class="card-header">
+					<h3>No of Student</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title"></h3>
+				</div>		
+			</div>
+		</div>	
+	</div>	
+	<div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3">
+				<div class="card-header">
+					<h3>No of Student</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title"></h3>
+				</div>		
+			</div>
+		</div>	
+	</div>	
+	
+</div>	 -->
+<!-- <div class="row">
+	<div class="col-md-5">
+	<br>
+	<br>	
+		<div class="card card-body">
+			<a class="btn-btn-primary" href="#">Insert</a>
+		</div>	
+	</div>
+	
+	<div class="col-md-6">
+		<br>
+	<br>
+		<div class="card card-body">
+			<a class="btn btn-primary btn-sm btn-block" href="#">Insert</a>
+		<br>
+		<table class="table table-sm">
+			<tr>
+				<th>Sno</th>
+				<th>Sno</th>
+				<th>Sno</th>
+				<th>Sno</th>
+			</tr>	
+		</table>
+	</div>	
+	</div>
+</div>	 -->
+{% endblock %}
+
+

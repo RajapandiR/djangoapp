@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block body  %}
+            <div class="container">
+                <div class="signup-content">
+                    <form method="POST" id="signup-form" class="signup-form">
+                        <h2 class="form-title">Edit Student Details</h2>
+
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            {{form.fullName}}
+                        </div>
+                        {% csrf_token %}
+                         <div class="form-group">
+                            <label>Father Name</label>
+                             {{form.fatherName}}
+                        </div>
+                        <div class="form-group">
+                           <label>Date Of Birth</label>
+                            {{form.dob}}
+                        </div>
+                        <div class="form-group">
+                           <label>Gender</label>
+                            {{form.gender}}
+                              <!-- <select name="gender" >
+                               <option>Choose Gender</option>
+                               <option {% if form.gender == 'Male' %} selected {% endif %}  >Male</option>
+                              <option {% if form.gender %} selected {% endif %}></option>
+                               <option {% if form.gender == 'FeMale'  %} selected="selected" {% endif %}>KKMale</option> 
+                           </select> -->
+                        </div>
+                         <div class="form-group">
+                            <label>Email Address</label>
+                             {{form.email}}
+                        </div>
+                         <div class="form-group">
+                            <label>Degree</label>
+                             {{form.degree}}
+                        </div>
+                        <div class="form-group">
+                           <label>Department</label>
+                            {{form.dept}}
+                        </div>
+                        <div class="form-group">
+                           <label>Year</label>
+                            {{form.year}}
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            {{form.address}}
+                        </div>
+                        <div class="form-group">
+                            <label>City</label>
+                            {{form.city}}
+                        </div>
+                        <div class="form-group">
+                            <label>State</label>
+                            {{form.state}}
+                        </div>
+                        <div class="form-group">
+                            <label>Pin Code</label>
+                            {{form.pin}}
+                        </div>
+                        <div class="form-group">
+                            <center> <button class="btn btn-success" type="submit">Updated</button>
+                            <button class="btn btn-danger" type="reset">Cancel</button></center>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+    {% endblock %}

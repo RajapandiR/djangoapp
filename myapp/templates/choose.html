@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block body%}
+<br>
+<br>
+<div class="container" style=" max-width: 1400px;width:100%">
+   <form action="{% url 'departmet' %}" method="GET">
+  <div class="row">
+ 
+   <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue">
+					<h3>DEGREE</h3>
+				</div>
+				<div class="card-body">
+					<select class="form-control" name="degree" value="{{my.form.degree}}">
+						<option>Selet Degree</option>
+						<option  value="BA" name="degree">BA</option>
+						<option  value="BSC" name="degree">BSC</option>
+						<option  value="BCOM" name="degree">BCOM</option>
+						<option  value="MA" name="degree">MA</option>
+						<option value="MSC" name="degree">MSC</option>
+						<option  value="MCOM" name="degree">MCOM</option>
+					</select>
+				</div>		
+			</div>
+		</div>	
+	</div>
+   <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue">
+					<h3>DEPARTMENT</h3>
+				</div>
+				<div class="card-body">
+					<select class="form-control" required name="dept" value="{{my.form.deptt}}" >
+						<option required>Selet Department</option>
+						<option  value="TAMIL" name="deptt">TAMIL</option>
+						<option  value="ENGLISH" name="deptt">ENGLISH</option>
+						<option  value="MATHS" name="deptt">MATHS</option>
+						<option  value="CS" name="deptt">CS</option>
+						<option value="COMMERCE" name="COMMERCE">COMMERCE</option>
+					</select>
+				</div>		
+			</div>
+		</div>	
+	</div>	
+    	
+   <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue;">
+					<h3>YEAR</h3>
+				</div>
+				<div class="card-body">
+					<select class="form-control" name="year" value="{{my.form.year}}">
+						<option>Selet Year</option>
+						<option  value="I" name="year">I</option>
+						<option value="II" name="year">II</option>
+						<option value="III" name="year">III</option>
+					</select>
+				</div>		
+			</div>
+		</div>	
+	</div>	
+
+  </div>
+  <br>
+  <br>
+  <center><input type="submit" class="btn btn-success" value="Submit"></center>
+  <!-- <center><button class="btn btn-success">Submit</button></center> -->
+  </form>
+</div>
+<br>
+
+{% endblock%}

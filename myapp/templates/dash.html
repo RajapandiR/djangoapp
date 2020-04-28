@@ -1,0 +1,261 @@
+{% extends 'base.html' %}
+
+{% block body%}
+<br>
+<center><h2>Department of {{title}} in {{year}} Year</h2></center>
+<br>
+<div class="container" style=" max-width: 1400px;width:100%">
+  <div class="row">
+   <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue">
+					<h3>No of Student</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title" style="color:red">{{data.count}}</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue">
+					<h3>No of Boys</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title" style="color:red">{{m}}</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+   <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue;">
+					<h3>No of Girls</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title" style="color:red">{{f}}</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+
+<br>
+<br>
+<!-- <div class="container" style=" max-width: 1400px;width:100%">
+<div class="row">
+    <div class="col">
+        <div class="card card-body">
+           <form action="" method="get">
+               {{my.form}}
+            <button class="btn btn-primary">search</button>
+           </form>
+        </div>
+    </div>
+</div>
+</div> -->
+<!-- <div class="container" style=" max-width: 1400px;width:100%">
+   <form action="" method="GET">
+  <div class="row">
+ 
+   <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue">
+					<h3>DEGREE</h3>
+				</div>
+				<div class="card-body">
+					<select class="form-control" name="degree" value="{{my.form.degree}}">
+						<option  value="BSC" name="degree">BSC</option>
+						<option value="MSC" name="degree">MSC</option>
+					</select>
+				</div>		
+			</div>
+		</div>	
+	</div>
+   <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue">
+					<h3>DEPARTMENT</h3>
+				</div>
+				<div class="card-body">
+					<select class="form-control" name="dept" value="{{my.form.deptt}}">
+						<option  value="CS" name="deptt">CS</option>
+						<option value="MATHS" name="deptt">MATHS</option>
+					</select>
+				</div>		
+			</div>
+		</div>	
+	</div>	
+    	
+   <div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue;">
+					<h3>YEAR</h3>
+				</div>
+				<div class="card-body">
+					<select class="form-control" name="year" value="{{my.form.years}}">
+						<option  value="I" name="years">I</option>
+						<option value="II" name="years">II</option>
+						<option value="III" name="years">III</option>
+					</select>
+				</div>		
+			</div>
+		</div>	
+	</div>	
+
+  </div>
+  <center><button class="btn btn-success">Sumit</button></center>
+  </form>
+</div>
+<br>
+ --><div class="container" style=" max-width: 1400px;width:100%">
+  <div class="row">
+<!--  	<div class="col-md-5">-->
+<!--		<div class="col-sm text-center text-white">-->
+<!--			<div class="card card-body">-->
+<!--			<a class="btn btn-primary btn-sm btn-block" href="#">Insert</a>-->
+<!--		<br>-->
+<!--		<table class="table table-sm">-->
+
+<!--			<tr>-->
+<!--				<th>Sno</th>-->
+<!--				<th>Sno</th>-->
+<!--				<th>Sno</th>-->
+<!--				<th>Sno</th>-->
+<!--			</tr>	-->
+<!--		</table>-->
+<!--	</div>	-->
+<!--		</div>	-->
+<!--    </div>-->
+
+    <div class="col-md-12">
+		<div class="col-sm text-center text-white">
+			<div class="card card-body">
+<!--			<a class="btn btn-primary btn-sm btn-block" href="#">Insert</a>-->
+		<table class="table table-sm ">
+			<tr class="btn-primary">
+				<th>Sno</th>
+				<th>Full Name</th>
+                <th>Father Name</th>
+                <th>Gender</th>
+                <th>Degree</th>
+                <th>Department</th>
+				<th>Year</th>
+				<th>View</th>
+				<th>Action</th>
+			</tr>
+			{% for i in data %}
+            {% with 0 as d %}
+                {{with.counter}}
+			<tr>
+				<td>{{forloop.counter}}</td>
+				<td>{{i.fullName}}</td>
+                <td>{{i.fatherName}}</td>
+				<td>{{i.gender}}</td>
+                <td>{{i.degree}}</td>
+				<td>{{i.dept}}</td>
+                <td>{{i.year}}</td>
+				<td><a class="btn btn-info" href="{% url 'viewall' i.id %}">View</a></td>
+				<td><a class="btn btn-success" href="{% url 'updateRegister' i.id %}">Edit</a>      <a class="btn btn-danger" href="{% url 'deleteRegister' i.id %}"">Delete</a></td>
+			</tr>
+            {% endwith %}
+              	{% endfor %}
+        <tr>
+            <td></td>
+<!--            {% for i in data %}-->
+<!--            <tr>-->
+<!--                <td>{{data.count}}</td>-->
+<!--                 {% with 1 as counters %}-->
+<!--                {% if i.gender == 'Male' %}-->
+<!--                  <td >{{ counter }}</td>-->
+
+<!--                    {{counters.count}}-->
+<!--                {% endif %}-->
+<!--                {% endwith %}-->
+<!--                <td>{{counters}}</td>-->
+
+<!--            </tr>-->
+<!--            {% endfor %}-->
+		</table>
+	</div>
+		</div>
+    </div>
+   </div>
+  </div>
+
+<!-- <div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3" >
+				<div class="card-header" style="background-color: blue">
+					<h3>No of Student</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title"></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3">
+				<div class="card-header">
+					<h3>No of Student</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title"></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="col-md">
+			<div class = "card text-center text-white mb-3">
+				<div class="card-header">
+					<h3>No of Student</h3>
+				</div>
+				<div class="card-body">
+					<h3 class="card-title"></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>	 -->
+<!-- <div class="row">
+	<div class="col-md-5">
+	<br>
+	<br>
+		<div class="card card-body">
+			<a class="btn-btn-primary" href="#">Insert</a>
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<br>
+	<br>
+		<div class="card card-body">
+			<a class="btn btn-primary btn-sm btn-block" href="#">Insert</a>
+		<br>
+		<table class="table table-sm">
+			<tr>
+				<th>Sno</th>
+				<th>Sno</th>
+				<th>Sno</th>
+				<th>Sno</th>
+			</tr>
+		</table>
+	</div>
+	</div>
+</div>	 -->
+{% endblock %}
+
+

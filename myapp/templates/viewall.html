@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br>
+<br>
+<center>
+    <h5>{{data.fullName}} Full Details</h5>
+    <br>
+    
+    <table class="table table-bordered table-dark " style="width:30%;" >
+        <tr>
+            <th>Full Name</th>
+            <td>{{data.fullName}}</td>
+        </tr>
+        <tr>
+            <th>Father Name</th>
+            <td>{{data.fatherName}}</td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>{{data.gender}}</td>
+        </tr>
+        <tr>
+            <th>DOB</th>
+            <td>{{data.dob}}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{data.email}}</td>
+        </tr>
+        <tr>
+            <th>Degree</th>
+            <td>{{data.degree}}</td>
+        </tr>
+        <tr>
+            <th>Department</th>
+            <td>{{data.dept}}</td>
+        </tr>
+        <tr>
+            <th>Year</th>
+            <td>{{data.year}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>{{data.address}}</td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>{{data.city}}</td>
+        </tr>
+        <tr>
+            <th>State</th>
+            <td>{{data.state}}</td>
+        </tr>
+        <tr>
+            <th>Pin Code</th>
+            <td>{{data.pin}}</td>
+        </tr>
+    </table>
+</center>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block body %}
+            <div class="container" >
+                <div class="signup-content" >
+                    <form method="POST" id="signup-form" class="signup-form">
+                        <h2 class="form-title">Add Student Details</h2>
+
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            {{form.fullName}}
+                        </div>
+                        {% csrf_token %}
+                         <div class="form-group">
+                            <label>Father Name</label>
+                             {{form.fatherName}}
+                        </div>
+                        <div class="form-group">
+                           <label>Date Of Birth</label>
+                            {{form.dob}}
+                        </div>
+                        <div class="form-group">
+                           <label>Gender</label>
+                            {{form.gender}}
+                           <!-- <select name="gender" value="{{form.gender}}">
+                               <option>Choose Gender</option>
+                               <option>Male</option>
+                               <option>FeMale</option>
+                           </select> -->
+                        </div>
+                         <div class="form-group">
+                            <label>Email Address</label>
+                             {{form.email}}
+                        </div>
+                         <div class="form-group">
+                            <label>Degree</label>
+                             {{form.degree}}
+                              <!-- <select name="degree" value="{{form.degree}}">
+                               <option>Choose Degree</option>
+                               <option>BA</option>
+                               <option>BSC</option>
+                               <option>BCOM</option>
+                               <option>MA</option>
+                               <option>MSC</option>
+                               <option>MCOM</option>
+                           </select> -->
+                        </div>
+                        <div class="form-group">
+                           <label>Department</label>
+                            {{form.dept}}
+                             <!--  <select name="dept" value="{{form.dept}}">
+                              <option>Choose Department</option>
+                               <option>TAMIL</option>
+                               <option>ENGLISH</option>
+                               <option>MATHS</option>
+                               <option>CS</option>
+                               <option>COMMERCE</option>
+                           </select> -->
+                        </div>
+                        <div class="form-group">
+                           <label>Year</label>
+                            {{form.year}}
+                             <!--  <select name="year" value="{{form.year}}">
+                              <option>Choose Year</option>
+                               <option>I</option>
+                               <option>II</option>
+                               <option>III</option>
+                           </select> -->
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            {{form.address}}
+                        </div>
+                        <div class="form-group">
+                            <label>City</label>
+                            {{form.city}}
+                        </div>
+                        <div class="form-group">
+                            <label>State</label>
+                            {{form.state}}
+                        </div>
+                        <div class="form-group">
+                            <label>Pin Code</label>
+                            {{form.pin}}
+                        </div>
+                        <div class="form-group">
+                            <!-- <input type="submit" name="submit" id="submit" class="btn btn-success" value = ""> -->
+                           <center> <button class="btn btn-success" type="submit">Register</button>
+                            <button class="btn btn-danger" type="reset">Cancel</button></center>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+    {% endblock %}
